@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+    <div class="py-4">
+        <a class="btn btn-primary"href="{{route('admin.posts.create')}}">Add Post</a>
+    </div>
+
+
     <div class="d-flex p-3 bg-dark text-white" >
         <div class="col-1">Id</div>
         <div class="col-2">Titolo</div>
@@ -10,9 +15,9 @@
         <div class="col-1">Stato</div>
         <div class="col-2">azioni</div>
     </div>
-        @foreach ($posts as $post)
+        @foreach ($posts as $idx => $post )
         <div class="d-flex p-3 
-        @if ($post->id %2==0)
+        @if ($idx%2==0)
             bg-light text-dark
         @endif">
             <div class="col-1 d-flex align-items-center">{{$post->id}}</div>

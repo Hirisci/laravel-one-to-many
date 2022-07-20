@@ -13,7 +13,9 @@ class AddColumPostTable extends Migration
      */
     public function up()
     {
-        
+        Schema::table('posts', function (Blueprint $table) {
+            $table->foreignId('category_id')->nullable()->after('is_public')->constrained()->onDelete('set null');
+        });    
     }
 
     /**
@@ -23,6 +25,9 @@ class AddColumPostTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign(['category_id']);
+            $table->dropColumn('category_id');
+        });
     }
 }

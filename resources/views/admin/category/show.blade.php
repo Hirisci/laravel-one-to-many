@@ -6,9 +6,7 @@
             <div class="card w-100">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <div>
-                        <h2>
-                            {{ $post->title }}
-                        </h2>
+                        {{ $post->title }}
                     </div>
                     <div class="d-flex align-items-center">
                         <div class="px-2">
