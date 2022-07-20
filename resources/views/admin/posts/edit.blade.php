@@ -6,13 +6,14 @@
             <div class="card w-100">
                 <div class="card-header d-flex align-items-center justify-content-between">
                     <div>
-                       Crea Post
+                       Modifica post
                     </div>
                 </div>
 
                 <div class="card-body">
-                    <form action="{{route('admin.posts.store')}}" method="POST">
+                    <form action="{{route('admin.posts.update', $post->slug)}}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="form-group">
                           <label for="form-title">Titolo del Post</label>
                           <input type="text" class="form-control @error('title') is-invalid @enderror" id="form-title" name="title"  value="{{ old('title', $post->title) }}">
@@ -31,7 +32,7 @@
                           <input type="checkbox" class="form-check-input" id="form-public-post" name="is_public" {{ old('is_public', $post->is_public) ? 'checked' : ''}}>
                           <label class="form-check-label" for="form-public-post">Pubblica</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Crea</button>
+                        <button type="submit" class="btn btn-primary">Modifica Post</button>
                       </form>                 
                 </div>
             </div>
